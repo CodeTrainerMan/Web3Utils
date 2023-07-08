@@ -40,7 +40,7 @@ public class MerklTreeTest {
     public void getHexRoot() {
     }
 
-    
+
     @Test
     public void testVerify() {
 
