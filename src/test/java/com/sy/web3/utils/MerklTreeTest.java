@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 public class MerklTreeTest {
 
     @Test
-    public void MerklTreeTest(){
+    public void testVerify(){
 
         List<String> list = new ArrayList<>();
 
