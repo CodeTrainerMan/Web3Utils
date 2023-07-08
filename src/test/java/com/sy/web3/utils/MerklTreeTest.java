@@ -31,13 +31,14 @@ public class MerklTreeTest {
         list.add(solidityPackedKeccak256("0x03a6dfE7c7AA062F23B56657313571cD1CD4aDf9",1057));
 
         merkleTree4Solidity = new MerklTree(list, true);
+        MerklTree merklTree = new MerklTree(list);
     }
 
 
     @Test
     public void findLeavesIndex() {
     }
-    
+
 
     @Test
     public void getHexProof() {
@@ -59,11 +60,23 @@ public class MerklTreeTest {
     @Test
     public void testVerify() {
 
-            List<String> proof = merkleTree4Solidity.getProof(solidityPackedKeccak256("0xfc3921042358aC9a4092C4506bD20C6d9744DA47",981), null);
-            String root = merkleTree4Solidity.getRoot();
-            boolean verify = merkleTree4Solidity.verify(proof, root, solidityPackedKeccak256("0xfc3921042358aC9a4092C4506bD20C6d9744DA47",981));
-            assertEquals(verify,true);
+        List<String> proof = merkleTree4Solidity.getProof(solidityPackedKeccak256("0xfc3921042358aC9a4092C4506bD20C6d9744DA47",981), null);
+        List<String> hexProof = merkleTree4Solidity.getHexProof(solidityPackedKeccak256("0xfc3921042358aC9a4092C4506bD20C6d9744DA47", 981), null);
+        String root = merkleTree4Solidity.getRoot();
+        boolean verify = merkleTree4Solidity.verify(proof, root, solidityPackedKeccak256("0xfc3921042358aC9a4092C4506bD20C6d9744DA47",981));
+        assertEquals(verify,true);
 
     }
 
+    @Test
+    public void getProof() {
+    }
+
+    @Test
+    public void testGetHexProof() {
+    }
+
+    @Test
+    public void testGetHexRoot() {
+    }
 }
