@@ -4,7 +4,7 @@ Web3Utils is a project aimed at collecting commonly used utility classes for Web
 
 [![Documentation Status](https://readthedocs.org/projects/web3utils/badge/?version=latest)]()
 [![build status](https://github.com/CodeTrainerMan/Web3Utils/actions/workflows/build.yml/badge.svg)](https://github.com/web3j/web3j/actions/workflows/build.yml)
-[![codecov](https://codecov.io/gh/web3j/web3j/branch/master/graph/badge.svg?token=a4G9ITI6CU)](https://codecov.io/gh/web3j/web3j)
+[![codecov](https://codecov.io/gh/web3j/web3j/branch/master/graph/badge.svg?token=a4G9ITI6CU)](https://app.codecov.io/gh/CodeTrainerMan/Web3Utils)
 [![Discord](https://img.shields.io/discord/1126920504838733894?label=discord)](https://discord.new/WXz7rh6jmGdP)
 ## Features
 
