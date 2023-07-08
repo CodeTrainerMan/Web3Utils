@@ -35,8 +35,6 @@ public class MerklTreeTest {
         String root = merkleTree4Solidity.getRoot();
         boolean verify = merkleTree4Solidity.verify(proof, root, solidityPackedKeccak256("0xfc3921042358aC9a4092C4506bD20C6d9744DA47",981));
         assertEquals(verify,true);
-//        System.out.println(list);
-
     }
 
 
