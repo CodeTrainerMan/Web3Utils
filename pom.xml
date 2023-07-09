@@ -6,7 +6,7 @@
 
     <groupId>io.github.CodeTrainerMan</groupId>
     <artifactId>web3utils</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
 
     <properties>
         <java.version>8</java.version>
