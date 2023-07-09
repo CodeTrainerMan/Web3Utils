@@ -6,7 +6,7 @@
 
     <groupId>io.github.CodeTrainerMan</groupId>
     <artifactId>web3utils</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
 
     <properties>
         <java.version>8</java.version>
@@ -73,19 +73,25 @@
             </plugins>
 
     </build>
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
+<!--    <distributionManagement>-->
+<!--        <snapshotRepository>-->
+<!--            <id>ossrh</id>-->
+<!--            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>-->
+<!--        </snapshotRepository>-->
+<!--        -->
 <!--        <repository>-->
 <!--            <id>ossrh</id>-->
-<!--            <name>Central Repository OSSRH</name>-->
-<!--            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+<!--            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
 <!--        </repository>-->
-    </distributionManagement>
+<!--        <repository>-->
+<!--            <id>github</id>-->
+<!--            <name>GitHub Packages</name>-->
+<!--            <url>https://maven.pkg.github.com/octocat/hello-world</url>-->
+<!--        </repository>-->
+<!--&lt;!&ndash;        <repository>&ndash;&gt;-->
+<!--&lt;!&ndash;            <id>ossrh</id>&ndash;&gt;-->
+<!--&lt;!&ndash;            <name>Central Repository OSSRH</name>&ndash;&gt;-->
+<!--&lt;!&ndash;            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>&ndash;&gt;-->
+<!--&lt;!&ndash;        </repository>&ndash;&gt;-->
+<!--    </distributionManagement>-->
 </project>
