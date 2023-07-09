@@ -6,7 +6,7 @@
 
     <groupId>org.sy.web3</groupId>
     <artifactId>web3utils</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <properties>
         <java.version>8</java.version>
