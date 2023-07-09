@@ -7,7 +7,18 @@
   <activeProfiles>
     <activeProfile>github</activeProfile>
   </activeProfiles>
-
+  <servers>
+    <server>
+      <id>github</id>
+      <username>451121814@qq.com</username>
+      <password>${ env.GITHUB_TOKEN }</password>
+    </server>
+    <server>
+      <id>ossrh</id>
+      <username>${ env.OSSRH_USERNAME }</username>
+      <password>${ env.OSSRH_TOKEN }</password>
+    </server>
+  </servers>
   <profiles>
 
     <profile>
