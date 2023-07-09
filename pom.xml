@@ -75,7 +75,16 @@
     </build>
 
     <profiles>
-
+        <profile>
+            <id>github</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub Packages</name>
+                    <url>https://maven.pkg.github.com/CodeTrainerMan/Web3Utils</url>
+                </repository>
+            </distributionManagement>
+        </profile>
         <profile>
             <id>ossrh</id>
             <distributionManagement>
@@ -91,5 +100,11 @@
             </distributionManagement>
         </profile>
     </profiles>
+    <distributionManagement>
+        <site>
+
+        </site>
+
+    </distributionManagement>
 
 </project>
