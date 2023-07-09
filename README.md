@@ -36,6 +36,10 @@ To start using Web3Utils in your project, follow these steps:
 
 Web3Utils welcomes contributions from the community to enhance the project and add more utility classes and functionalities. If you encounter any issues or have suggestions, please open an issue on the project's GitHub repository.
 
+## Utils
+1.[MerklTree](./doc/MerklTree.md)
+
+2.[Solidity](./doc/Solidity.md)
 ## License
 
 Web3Utils is released under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute it as per the terms of the license.

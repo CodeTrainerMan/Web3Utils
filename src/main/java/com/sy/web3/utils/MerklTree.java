@@ -245,10 +245,6 @@ public class MerklTree {
         }).collect(Collectors.toList());
         return collect;
     }
-    public static String solidityPackedKeccak256(String address, Integer quantity){
-        String quantity64 = String.format("%0" + 64 + "x", quantity);;
-        return Hash.sha3(address+quantity64);
 
-    }
 
 }
