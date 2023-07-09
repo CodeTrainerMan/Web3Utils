@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.sy.web3</groupId>
-    <artifactId>Web3Utils</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>web3utils</artifactId>
+    <version>1.0.0</version>
 
     <properties>
         <java.version>8</java.version>
@@ -75,11 +75,9 @@
     </build>
     <distributionManagement>
         <repository>
-            <id>ossrh</id>
-            <name>Central Repository OSSRH</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/CodeTrainerMan/Web3Utils</url>
         </repository>
-
     </distributionManagement>
-
 </project>
