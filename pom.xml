@@ -73,12 +73,23 @@
             </plugins>
 
     </build>
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/octocat/hello-world</url>
+        </repository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </repositories>
 <!--    <distributionManagement>-->
 <!--        <snapshotRepository>-->
 <!--            <id>ossrh</id>-->
 <!--            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>-->
 <!--        </snapshotRepository>-->
-<!--        -->
+
 <!--        <repository>-->
 <!--            <id>ossrh</id>-->
 <!--            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
@@ -94,4 +105,5 @@
 <!--&lt;!&ndash;            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>&ndash;&gt;-->
 <!--&lt;!&ndash;        </repository>&ndash;&gt;-->
 <!--    </distributionManagement>-->
+
 </project>
