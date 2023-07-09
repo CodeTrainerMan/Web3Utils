@@ -15,8 +15,8 @@
     </server>
     <server>
       <id>ossrh</id>
-      <username>nmgsykj@gmail.com</username>
-      <password>45635741oooO!</password>
+      <username>${ env.MAVEN_USERNAME }</username>
+      <password>${ env.MAVEN_PASSWORD }</password>
     </server>
   </servers>
   <profiles>
