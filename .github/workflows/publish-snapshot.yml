@@ -22,7 +22,6 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
       - name: Publish to the Maven Central Repository
         run: 
-          gpg --pinentry-mode loopback --passphrase '${{ secrets.GPG_IV }}' -s pom.xml
           mvn --batch-mode deploy -P ossrh
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
