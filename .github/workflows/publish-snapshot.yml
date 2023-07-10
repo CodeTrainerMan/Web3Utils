@@ -26,11 +26,13 @@ jobs:
           echo -n "$GPG_SIGNING_KEY" | gpg --import
         env:
             GPG_SIGNING_KEY: ${{ secrets.GPG_KEY }}
+
       - name: List of keys on gpg
         run: gpg --list-secret-keys --keyid-format LONG
+        
       - name: Publish to the Maven Central Repository
         run: |
-          export GPG_TTY=$(tty)
+#          export GPG_TTY=$(tty)
 #          gpg --pinentry-mode loopback --passphrase '${{ secrets.GPG_IV }}' -s pom.xml
           mvn --batch-mode deploy -P ossrh -Darguments=-Dgpg.passphrase=${GPG_PASSPHRASE}
         env:
