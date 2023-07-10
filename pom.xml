@@ -6,7 +6,7 @@
 
     <groupId>io.github.CodeTrainerMan</groupId>
     <artifactId>web3utils</artifactId>
-    <version>1.0.12</version>
+    <version>1.0.13</version>
     <name>web3utils</name>
     <description>java web3 tools</description>
     <url>https://github.com/CodeTrainerMan/Web3Utils</url>
@@ -95,6 +95,27 @@
                         <docencoding>UTF-8</docencoding>
                     </configuration>
                 </plugin>
+                <!-- GPG -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.6</version>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!--Release -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5.1</version>
+                </plugin>
+
             </plugins>
 
     </build>
@@ -138,6 +159,28 @@
         </repository>
     </distributionManagement>
     <licenses>
-
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
     </licenses>
+    <scm>
+        <url>https://github.com/CodeTrainerMan/Web3Utils</url>
+        <connection>https://github.com/CodeTrainerMan/Web3Utils.git</connection>
+        <developerConnection>https://github.com/CodeTrainerMan/Web3Utils.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <id>jason</id>
+            <name>william liu</name>
+            <email>nmgsykj@gmail.com</email>
+            <url>https://github.com/CodeTrainerMan</url>
+            <organization>sy</organization>
+            <organizationUrl>https://github.com/CodeTrainerMan/Web3Utils</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>-6</timezone>
+        </developer>
+    </developers>
 </project>
