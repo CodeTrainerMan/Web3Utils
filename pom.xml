@@ -7,6 +7,9 @@
     <groupId>io.github.CodeTrainerMan</groupId>
     <artifactId>web3utils</artifactId>
     <version>1.0.11</version>
+    <name>web3utils</name>
+    <description>java web3 tools</description>
+    <url>https://github.com/CodeTrainerMan/Web3Utils</url>
 
     <properties>
         <java.version>8</java.version>
@@ -70,6 +73,28 @@
                         <target>8</target>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.9</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                            <configuration>
+                                <additionalparam>-Xdoclint:none</additionalparam>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <!-- 解决控制台乱码 -->
+                        <charset>UTF-8</charset>
+                        <encoding>UTF-8</encoding>
+                        <docencoding>UTF-8</docencoding>
+                    </configuration>
+                </plugin>
             </plugins>
 
     </build>
@@ -112,5 +137,7 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+    <licenses>
 
+    </licenses>
 </project>
