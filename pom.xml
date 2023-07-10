@@ -6,7 +6,7 @@
 
     <groupId>io.github.CodeTrainerMan</groupId>
     <artifactId>web3utils</artifactId>
-    <version>1.0.13</version>
+    <version>1.0.14</version>
     <name>web3utils</name>
     <description>java web3 tools</description>
     <url>https://github.com/CodeTrainerMan/Web3Utils</url>
@@ -15,6 +15,7 @@
         <java.version>8</java.version>
         <maven.compiler.target>8</maven.compiler.target>
         <maven.compiler.source>8</maven.compiler.source>
+        <gpg.keyname>3627FAB2BD5D6E84</gpg.keyname>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
@@ -35,6 +36,38 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>github</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub Packages</name>
+                    <url>https://maven.pkg.github.com/CodeTrainerMan/Web3Utils</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>ossrh</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <gpg.keyname>3627FAB2BD5D6E84</gpg.keyname>
+            </properties>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
     <build>
         <finalName>${project.name}</finalName>
         <resources>
@@ -106,9 +139,30 @@
                             <goals>
                                 <goal>sign</goal>
                             </goals>
-                           <configuration>
-                                 <skip>true</skip>
+                            <configuration>
+                                <useAgent>true</useAgent>
+                                <keyname>${gpg.keyname}</keyname>
+                                <passphraseServerId>${gpg.keyname}</passphraseServerId>
+                                <gpgArguments>
+                                    <arg>--batch</arg>
+                                    <arg>--pinentry-mode</arg>
+                                    <arg>loopback</arg>
+                                </gpgArguments>
                             </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!--source -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.2.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>
@@ -123,32 +177,7 @@
 
     </build>
 
-    <profiles>
-        <profile>
-            <id>github</id>
-            <distributionManagement>
-                <repository>
-                    <id>github</id>
-                    <name>GitHub Packages</name>
-                    <url>https://maven.pkg.github.com/CodeTrainerMan/Web3Utils</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>ossrh</id>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
 
-                <repository>
-                    <id>ossrh</id>
-                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
 
     <distributionManagement>
         <snapshotRepository>
