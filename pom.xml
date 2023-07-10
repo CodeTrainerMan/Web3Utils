@@ -6,7 +6,7 @@
 
     <groupId>io.github.CodeTrainerMan</groupId>
     <artifactId>web3utils</artifactId>
-    <version>1.0.11</version>
+    <version>1.0.12</version>
     <name>web3utils</name>
     <description>java web3 tools</description>
     <url>https://github.com/CodeTrainerMan/Web3Utils</url>
