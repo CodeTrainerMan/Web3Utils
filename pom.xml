@@ -106,6 +106,16 @@
                             <goals>
                                 <goal>sign</goal>
                             </goals>
+                           <configuration>
+                                <useAgent>true</useAgent>
+                                <keyname>3627FAB2BD5D6E84</keyname>
+                                <passphraseServerId>3627FAB2BD5D6E84</passphraseServerId>
+                                <gpgArguments>
+                                    <arg>--batch</arg>
+                                    <arg>--pinentry-mode</arg>
+                                    <arg>loopback</arg>
+                                </gpgArguments>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
