@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 public class MerklTreeTest {
     List<String> list;
     MerklTree merkleTree4Solidity;
-//    @Before
+    @Before
     public void setUp() throws Exception {
         list = new ArrayList<>();
 
@@ -82,7 +82,7 @@ public class MerklTreeTest {
 
     @Test
     public void testGetHexRoot() {
-      
+
 
     }
 }
