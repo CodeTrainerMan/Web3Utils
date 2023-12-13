@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
 public class MerklTree {
     private List<String> leaves;
     private List<List<String>> layers;
+    private boolean sortLeaves = false;
+    private boolean sortPairs = false;
 
     /**
      *
@@ -24,14 +26,32 @@ public class MerklTree {
      * @param sort
      */
     public MerklTree(List<String> leafList,boolean sort) {
-        if(sort==true){
+        this.sortLeaves = sort;
+        this.sortPairs = sort;
+        if(sortLeaves==true){
             sortList(leafList);
         }
         this.leaves = remove0x(leafList);
         this.layers = new ArrayList<>();
-        processLeaves(this.leaves,sort);
-
+        processLeaves(this.leaves);
     }
+    /**
+     *
+     * @param leafList
+     * @param sortLeaves
+     * @param sortLeaves
+     */
+    public MerklTree(List<String> leafList,boolean sortLeaves,boolean sortPairs) {
+        this.sortLeaves = sortLeaves;
+        this.sortPairs = sortPairs;
+        if(sortLeaves==true){
+            sortList(leafList);
+        }
+        this.leaves = remove0x(leafList);
+        this.layers = new ArrayList<>();
+        processLeaves(this.leaves);
+    }
+
     /*
      * TODO
      *
@@ -50,15 +70,14 @@ public class MerklTree {
          **/
         this.leaves = remove0x(leafList);
         this.layers = new ArrayList<>();
-        processLeaves(this.leaves,false);
+        processLeaves(this.leaves);
     }
 
     /**
      *
      * @param leafList
-     * @param sort
      */
-    private void processLeaves(List<String> leafList,boolean sort){
+    private void processLeaves(List<String> leafList){
         try {
             this.layers.add(leafList);
             List<String> nodeList = leafList;
@@ -74,13 +93,23 @@ public class MerklTree {
 
                     String left = nodeList.get(i);
                     String right = nodeList.get(i + 1);
+                    String combine="";
 
-                    String combine = Hash.sha3(left+right).substring(2);
+                    if (sortPairs==true){
+                        ArrayList<String > sha3List = new ArrayList<>();
+                        sha3List.add(left);
+                        sha3List.add(right);
+                        sortList(sha3List);
+                        combine = Hash.sha3(sha3List.get(0)+sha3List.get(1)).substring(2);
+                    }else{
+                        combine = Hash.sha3(left+right).substring(2);
+                    }
+
                     this.layers.get(layerIndex).add(combine);
                 }
-                if (sort==true){
-                    sortList(this.layers.get(layerIndex));
-                }
+//                if (isSort==true){
+//                    sortList(this.layers.get(layerIndex));
+//                }
                 nodeList = this.layers.get(layerIndex);
             }
         }catch (Exception e){
@@ -163,7 +192,13 @@ public class MerklTree {
                 }
             }
             if(this.layers.size() != (i+1)){
-                if(isRightNode){
+                if (sortPairs){
+                    ArrayList<String> strings = new ArrayList<>();
+                    strings.add(layer.get(pairIndex));
+                    strings.add(layer.get(leavesIndex));
+                    sortList(strings);
+                    hashLeaf =  Hash.sha3(strings.get(0)+strings.get(1)).substring(2);
+                } else if(isRightNode){
                     hashLeaf =  Hash.sha3(layer.get(pairIndex)+layer.get(leavesIndex)).substring(2);
                 }else {
                     hashLeaf =  Hash.sha3(layer.get(leavesIndex)+layer.get(pairIndex)).substring(2);
@@ -210,7 +245,13 @@ public class MerklTree {
      *verify
      * */
     public boolean verify(List<String> proof, String root, String leaf){
-        String computedHash = leaf.substring(2);
+        String computedHash;
+        if(leaf.startsWith("0x")){
+            computedHash = leaf.substring(2);
+        }else {
+            computedHash = leaf;
+        }
+
         ArrayList<String> verifyList = new ArrayList<>();
 
         try {
@@ -218,7 +259,15 @@ public class MerklTree {
                 String proofElement = proof.get(i);
                 verifyList.add(computedHash);
                 verifyList.add(proofElement);
-                sortList(verifyList);
+
+                if(sortPairs){
+                    sortList(verifyList);
+                }
+                else if ( layers.get(i).indexOf(computedHash)>layers.get(i).indexOf(proofElement)){
+                    verifyList.clear();
+                    verifyList.add(proofElement);
+                    verifyList.add(computedHash);
+                }
                 if(proofElement.equals(computedHash)){
                     computedHash = proofElement;
                 }else {
